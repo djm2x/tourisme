@@ -1,0 +1,16 @@
+{
+  "name": "angular",
+  "version": "0.0.0",
+  "scripts": {
+    "f": "cd angular && ng serve",
+    "build": "ng build",
+    "b": "cd api && nodemon ./server.ts",
+    "install": "cd api && npm i && cd ../angular && npm i",
+    "e2e": "ng e2e",
+    "init": "git init && git remote add origin https://github.com/djm2x/tourisme.git",
+    "push": "git add . && git commit -m \"add pagination and unit recipe\" && git push -u origin master"
+  },
+  "private": true,
+  "dependencies": { },
+  "devDependencies": {}
+}

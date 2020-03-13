@@ -1,0 +1,12 @@
+.vscode
+from
+
+angular/.vscode
+angular/dist
+angular/e2e
+angular/node_modules
+
+
+
+api/.vscode
+api/node_modules
