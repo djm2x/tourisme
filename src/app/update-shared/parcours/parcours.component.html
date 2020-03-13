@@ -1,0 +1,49 @@
+<mat-card>
+
+
+  <app-title title="Produit"></app-title>
+  <form [formGroup]="myForm">
+    <mat-form-field appearance="fill" class="col-md-12">
+      <mat-label>titre</mat-label>
+      <input matInput formControlName="titre" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col-md-6">
+      <mat-label>image</mat-label>
+      <input matInput formControlName="image" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col-md-6">
+      <mat-label>temps</mat-label>
+      <input matInput formControlName="temps" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col-md-6">
+      <mat-label>lat</mat-label>
+      <input matInput formControlName="lat" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col-md-6">
+      <mat-label>lng</mat-label>
+      <input matInput formControlName="lng" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="col-md-12">
+      <mat-label>descriptif</mat-label>
+      <textarea matInput formControlName="descriptif" required></textarea>
+    </mat-form-field>
+
+
+    <div class="actions">
+      <button mat-button [routerLink]="['/admin/article/list']" type="button">Retour</button>&nbsp;&nbsp;
+      <!-- <button mat-button (click)="reset()" type="button">Annuler</button>&nbsp;&nbsp; -->
+      <button mat-raised-button cdkFocusInitial color="primary" (click)="submit(myForm.value)">Enregistre
+        <!-- [disabled]="myForm.invalid" -->
+      </button>
+    </div>
+
+    <mat-divider class="mb-3"></mat-divider>
+
+    <app-etap [objectFromParcoursComponent]="sendObjectToEtapComponent"></app-etap>
+  </form>
+</mat-card>

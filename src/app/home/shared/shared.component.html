@@ -1,0 +1,50 @@
+<mat-card>
+  <div class="myrow">
+    <mat-form-field style="width: 70%;">
+      <mat-label>Nom de recette</mat-label>
+      <input matInput [formControl]="filter" required>
+    </mat-form-field>
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="search()">
+        <mat-icon>search</mat-icon>
+      </button>
+      &nbsp;
+      <button mat-raised-button (click)="reset()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <!-- <button mat-raised-button>text</button> -->
+    </div>
+  </div>
+</mat-card>
+<hr>
+<div class="row justify-content-center mb-5">
+  <div class="col-sm-6 col-md-4 " *ngFor="let e of list; let i=index">
+    <mat-card>
+      <p>{{e.titre}}</p>
+      <div class="col-md-12" [routerLink]="['/detail', e.id]">
+        <img [src]="e.image" height="180px">
+      </div>
+      <div class="actions">
+        <p>{{e.temps}}</p>
+        <div>
+          <!-- 'api/agent/list', btoa(requestObj) -->
+          <button mat-icon-button [routerLink]="['/home/update', e.id]" color="primary">
+            <mat-icon>create</mat-icon>
+          </button>
+          <button mat-icon-button (click)="delete(e.id)" color="warn">
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+  <!-- {{list | json}} -->
+</div>
+
+
+<div class="mat-elevation-z8 mb-3">
+  <mat-paginator [length]="resultsLength" [pageSize]="6" [pageSizeOptions]="[6, 12, 20]" showFirstLastButtons></mat-paginator>
+</div>
+
+
+

@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+    <span [routerLink]="['/home']" >Super travel</span>
+    <span class="example-spacer"></span>
+
+
+    <button mat-raised-button [matMenuTriggerFor]="menu">{{session.user.firstname}}</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/home/update', 0]" routerLinkActive="router-link-active" >Ajouter Parcours</button>
+      <button mat-menu-item [routerLink]="['/home/created']" routerLinkActive="router-link-active" >Mes Parcours cree</button>
+      <button mat-menu-item [routerLink]="['/home/followed']" routerLinkActive="router-link-active" >Mes Parcours suivi</button>
+      <button mat-menu-item (click)="disconnect()">Deconnecter</button>
+    </mat-menu>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<main class="container">
+
+  <router-outlet></router-outlet>
+</main>
