@@ -3,8 +3,11 @@ import {createExpressServer, useContainer, RoutingControllersOptions} from 'rout
 import {Container} from 'typedi';
 import { createConnection, ConnectionOptions } from 'typeorm';
 import { Application } from 'express';
+import * as express from 'express';
 import { FakeData } from './api/model/fake.data';
+
 import { config } from './api/config';
+import { join } from 'path';
 
 useContainer(Container);
 
@@ -13,7 +16,7 @@ class MyApp {
   constructor() { }
 
   dbConfig() {
-    createConnection({
+    const opts: ConnectionOptions = {
       type: 'sqlite',
       name: 'default',
       database: `${__dirname}/api/data/db-travel.sqlite`,
@@ -24,23 +27,30 @@ class MyApp {
         // 'query',
         // 'schema'
       ],
-    } as ConnectionOptions)
-    .then(() => console.log('Create connection with database has done successfully'))
-    .then(async () => await new FakeData().insertSomeFakeData())
-    .catch(e => console.log(e));
+    }
+
+    createConnection(opts)
+      .then(() => console.log('Create connection with database has done successfully'))
+      .then(async () => await new FakeData().insertSomeFakeData())
+      .catch(e => console.log(e))
+    ;
 
     return this;
   }
 
-  start() {
-    return createExpressServer({
+  start(): Application {
+
+    const opts: RoutingControllersOptions = {
       routePrefix: '/api',
       cors: true,
       classTransformer: true,
       controllers: [`${__dirname}/api/controllers/*.ts`, `${__dirname}/api/controllers/*.js`],
       middlewares: [`${__dirname}/api/middlewares/*.ts`, `${__dirname}/api/middlewares/*.js`],
       // interceptors: [__dirname + '/interceptors/*.js'],
-    }) as Application;
+    }
+
+
+    return createExpressServer(opts);
   }
 }
 
@@ -51,6 +61,7 @@ const myApp = new MyApp();
 myApp
   .dbConfig()
   .start()
+  .use(express.static(`${__dirname}/public`))
   .listen(PORT, () => console.log(`Listening at http://localhost:${PORT}/`))
   ;
 

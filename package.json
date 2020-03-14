@@ -8,7 +8,7 @@
     "install": "cd api && npm i && cd ../angular && npm i",
     "e2e": "ng e2e",
     "init": "git init && git remote add origin https://github.com/djm2x/tourisme.git",
-    "push": "git add . && git commit -m \"add pagination and unit recipe\" && git push -u origin master"
+    "push": "git add . && git commit -m \"change name foler api to node\" && git push -u origin master"
   },
   "private": true,
   "dependencies": { },
