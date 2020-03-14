@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+import { SessionService } from '../shared';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
+})
+export class HomeComponent implements OnInit {
+
+  constructor(public session: SessionService, private router: Router) { }
+
+  ngOnInit(): void {
+  }
+
+  disconnect() {
+    this.session.doSignOut();
+    this.router.navigate(['/auth/login']);
+  }
+}
