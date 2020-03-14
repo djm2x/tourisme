@@ -1,6 +1,6 @@
 
 
-**/dist
+# **/dist
 **/e2e
 **/.vscode
 **/node_modules
