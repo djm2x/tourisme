@@ -10,7 +10,7 @@
     "dep-back-install": "cd node && npm i",
     "prod": "npm run prod-front && npm run back-front",
     "serve": "cd node && node dist/server.js",
-    "start": "npm run back-front && npm run serve",
+    "start": "npm run serve",
     "e2e": "ng e2e",
     "init": "git init && git remote add origin https://github.com/djm2x/tourisme.git",
     "create-branch": "git branch new-one",
