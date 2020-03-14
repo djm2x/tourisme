@@ -20,7 +20,8 @@
     "routing-controllers": "^0.8.1-alpha.2",
     "sqlite3": "^4.1.1",
     "typedi": "^0.8.0",
-    "typeorm": "^0.2.22"
+    "typeorm": "^0.2.22",
+    "tslib": "^1.10.0"
   },
   "devDependencies": {
     "@types/faker": "^4.1.9",
