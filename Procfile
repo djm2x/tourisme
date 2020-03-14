@@ -1,1 +1,1 @@
-web: npm start --prefix node/package.json
+web: npm --prefix node run start

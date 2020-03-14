@@ -8,7 +8,7 @@
     "b": "nodemon ./server.ts",
     "build": "tsc",
     "prod:serve": "node dist/server.js",
-    "start": "npm run build && npm run prod:serve",
+    "start": "npm run prod:serve",
     "f": "ng serve",
     "e2e": "ng e2e"
   },
