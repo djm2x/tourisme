@@ -1,0 +1,29 @@
+<mat-card>
+
+
+  <h3>Liste des utilisateurs</h3>
+
+  <table>
+
+    <tr *ngFor = "let e of resultat">
+      <td>{{e.firstname}}</td>
+      <td>{{e.lastname}}</td>
+      <td>{{e.role}}</td>
+      <td><button mat-icon-button color="warn" (click)="delete(e.id)">
+        <mat-icon>delete</mat-icon>
+      </button></td>
+    </tr>
+  </table>
+
+      <!-- Boutons de validation -->
+      <div class="actions">
+        <br>
+        <button mat-button [routerLink]="['/home/list']" type="button">Retour</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" [routerLink]="['/home/account/new']" type="button">Nouvel utilisateur</button>&nbsp;&nbsp;
+      </div>
+
+  </mat-card>
+
+  <div class="mat-elevation-z8 mb-3">
+    <mat-paginator [length]="resultsLength" [pageSize]="6" [pageSizeOptions]="[6, 12, 20]" showFirstLastButtons></mat-paginator>
+  </div>
