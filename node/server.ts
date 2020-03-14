@@ -61,7 +61,8 @@ const myApp = new MyApp();
 myApp
   .dbConfig()
   .start()
-  .use(express.static(`${__dirname}/api/public`))
+  .use(express.static(join(__dirname, '/api/public')))
+  // .use(express.static(join(process.cwd(), '/api/public')))
   .listen(PORT, () => console.log(`Listening at http://localhost:${PORT}/`))
   ;
 
