@@ -5,6 +5,7 @@ import { MapComponent } from './map.component';
 import { KEY } from './config';
 import { MapAgmComponent } from './map.agm.component';
 import { AgmCoreModule } from '@agm/core';
+
 const KEY_MAP = 'AIzaSyDm1sMO4dR7OrZWe5Ten0_Ol2p7QXdsjwo ';
 
 @NgModule({

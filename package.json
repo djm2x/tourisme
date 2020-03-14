@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "f": "cd angular && ng serve",
+    "prod-front": "cd angular && ng build --prod",
     "build": "ng build",
-    "b": "cd api && nodemon ./server.ts",
+    "b": "cd node && nodemon ./server.ts",
     "install": "cd api && npm i && cd ../angular && npm i",
     "e2e": "ng e2e",
     "init": "git init && git remote add origin https://github.com/djm2x/tourisme.git",
