@@ -1,0 +1,1 @@
+web: npm --prefix node run start
