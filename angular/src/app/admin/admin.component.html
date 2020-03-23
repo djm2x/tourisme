@@ -1,0 +1,15 @@
+<mat-toolbar color="warn"  class="topbar mat-elevation-z6">
+
+  <mat-toolbar-row>
+    <span [routerLink]="['/home']" style="cursor: pointer;">Super travel</span>
+    <span class="example-spacer"></span>
+
+    <button mat-raised-button (click)="disconnect()">Deconnecter</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<main class="container">
+
+  <router-outlet></router-outlet>
+</main>

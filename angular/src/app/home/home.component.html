@@ -1,0 +1,46 @@
+<mat-toolbar color="primary" class="topbar mat-elevation-z6">
+
+    <mat-toolbar-row>
+        <span [routerLink]="['/home/welcome']" routerLinkActive="router-link-active" style="cursor: pointer;">Super travel</span>
+        &nbsp;&nbsp;
+        <span [routerLink]="['/home/list']" routerLinkActive="router-link-active"  style="cursor: pointer; font-size: .8em; margin-left: 20px;">Parcours</span>
+        <span class="example-spacer"></span>
+
+        <ng-container *ngIf="isLogin; then thenTemplate; else elseTemplate"></ng-container>
+        <ng-template #thenTemplate>
+            <button mat-raised-button [matMenuTriggerFor]="menu">{{session.user.firstname}}</button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/home/update', 0]" routerLinkActive="router-link-active">Ajouter un Parcours</button>
+                <button mat-menu-item [routerLink]="['/home/created']" routerLinkActive="router-link-active">Mes Parcours crées</button>
+                <button mat-menu-item [routerLink]="['/home/followed']" routerLinkActive="router-link-active">Mes Parcours suivis</button>
+                <button mat-menu-item [routerLink]="['/home/account']" routerLinkActive="router-link-active">Mon compte</button>
+                <button mat-menu-item (click)="disconnect()">Déconnecter</button>
+            </mat-menu>
+        </ng-template>
+        <ng-template #elseTemplate>
+            <button mat-raised-button [routerLink]="['/auth']">Connexion</button>
+        </ng-template>
+
+        &nbsp;&nbsp;
+
+        <button mat-raised-button *ngIf="show()" [routerLink]="['/admin']">Dashboard</button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+
+<main style="margin-top: 50px;background-color: rgb(247, 247, 247);" >
+
+    <router-outlet></router-outlet>
+
+
+</main>
+
+<footer>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row style="height: 15vh;">
+            <span [routerLink]="['/home']" style="cursor: pointer;">Super travel</span>
+            <span class="example-spacer"></span>
+            <span [routerLink]="['/home']" style="cursor: pointer;">&copy; {{today | date : "dd/MM/yyyy"}}</span>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</footer>

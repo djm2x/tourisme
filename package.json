@@ -1,0 +1,44 @@
+{
+  "name": "angular",
+  "version": "0.0.0",
+  "engines": {
+    "node": "12.4.0",
+    "npm":"6.9.0"
+  },
+  "scripts": {
+    "f": "cd angular && ng serve",
+    "b": "cd node && npm run b",
+    "prod-front": "cd angular && ng build --prod",
+    "back-front": "cd node && tsc",
+    "dep-front-install": "cd angular && npm i",
+    "dep-back-install": "cd node && npm i",
+    "prod": "npm run prod-front && npm run back-front",
+    "serve": "cd node && node dist/server.js",
+    "start": "npm --prefix node run start",
+    "e2e": "ng e2e",
+    "init": "git init && git remote add origin https://github.com/jtaswin/TourismeAutoguide.git",
+    "init2": "git init && git remote add origin https://github.com/djm2x/tourisme.git",
+    "create-branch": "git branch new-one",
+    "move-to-branch": "git checkout new-one",
+    "move-to-master-branch": "git checkout",
+    "merge-branch-to-master-branch": "git merge new-one",
+    "heroku-log": "heroku logs -a tourisme-autoguide",
+    "remove": "git remote rm origin",
+    "push": "git add . && git commit -m \"change name foler api to node\" && git push -u origin master"
+  },
+  "private": true,
+  "dependencies": {
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.11.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "routing-controllers": "^0.8.1-alpha.2",
+    "sqlite3": "^4.1.1",
+    "typedi": "^0.8.0",
+    "typeorm": "^0.2.22",
+    "tslib": "^1.10.0"
+   },
+  "devDependencies": {}
+}

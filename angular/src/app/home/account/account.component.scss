@@ -1,0 +1,39 @@
+.wallpaper {
+  background-image: url(../../../assets/2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  // background-attachment: fixed;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+  }
+}
+
+mat-card {
+  margin: 3rem 0;
+
+  .column {
+    display: flex;
+    flex-direction: column;
+
+    h4 {
+      margin-bottom: 20px;
+    }
+  }
+
+  .myrow {
+    display: flex;
+    mat-form-field {
+      width: 100%;
+      // justify-content: space-between;
+    }
+  }
+}

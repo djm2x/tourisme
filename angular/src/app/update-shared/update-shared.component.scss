@@ -1,0 +1,19 @@
+.wallpaper {
+  background-image: url(../../assets/3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  // background-attachment: fixed;
+  height: 50vh;
+
+   display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    color: white;
+    font-weight: bold;
+    font-size: 3em;
+  }
+}

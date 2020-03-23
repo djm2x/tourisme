@@ -1,0 +1,57 @@
+.wallpaper {
+  background-image: url(../../../assets/1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  // background-attachment: fixed;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .myrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 60vw;
+
+    // @media only screen and (max-width: 500px) {
+      
+    // }
+  }
+}
+
+.mycard {
+  transform: scale(1);
+  font-weight: unset;
+  transition: transform .3s ease-in-out, box-shadow .2s ease-in-out, font-weight .5s ease-in-out;
+  &:hover {
+    transform: scale(1.008);
+    font-weight: bold;
+    box-shadow: 2px 20px 40px -15px grey;
+  }
+}
+
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  align-items: center;
+  p {
+    font-size: .9em;
+    margin: 0;
+  }
+}
+
+
+
+// .seach-zone {
+//   height: 30vh;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+// }
