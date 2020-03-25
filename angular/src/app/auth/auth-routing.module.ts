@@ -1,3 +1,5 @@
+// routeur d'authentification
+
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -11,9 +13,14 @@ const routes: Routes = [
   {
     path: '', component: AuthComponent,
     children: [
+
+      // si /auth appelé alors module /auth/login
       { path: '', redirectTo: 'login', pathMatch: 'full'},
-      // { path: '**', redirectTo: 'home', pathMatch: 'full'},
+      
+      // si /auth/login appelé alors LoginComponent
       { path: 'login', component: LoginComponent},
+
+      // si /auth/create appelé alors CreateComponent
       { path: 'create', component: CreateComponent},
 
     ]

@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // Voir si role de l'utilisateur = Admin
   show() {
     return this.session.user.role === 'admin';
   }
@@ -22,8 +23,12 @@ export class HomeComponent implements OnInit {
     return this.session.user !== null && this.session.user.id !== null;
   }
 
+  // se déconnecter
   disconnect() {
+    //supprimer la session de connexion
     this.session.doSignOut();
+    
+    //diriger l'utilisateur vers le repertoire /home/(login)
     this.router.navigate(['/home']);
   }
 }

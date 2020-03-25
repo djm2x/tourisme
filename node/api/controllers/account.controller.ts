@@ -7,7 +7,7 @@ import { JwtMiddleware } from '../middleware/jwt.middleware';
 
 @JsonController('/accounts')
 // @UseBefore(JwtMiddleware)
-export class AccountController {
+export class AccountsController {
 
   private service = Container.get(UserRepository);
   private jwt = Container.get(JwtService);

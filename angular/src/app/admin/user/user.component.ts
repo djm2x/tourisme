@@ -77,7 +77,7 @@ export class UserComponent implements OnInit {
   }
 
   add() {
-    this.openDialog(new User(), 'Ajouter Utilisateur').subscribe(result => {
+    this.openDialog(new User(), 'Ajouter un utilisateur').subscribe(result => {
       if (result) {
         this.uow.users.post(result).subscribe(
           r => {
@@ -89,7 +89,7 @@ export class UserComponent implements OnInit {
   }
 
   edit(o: User) {
-    this.openDialog(o, 'Modifier Utilisateur').subscribe((result: User) => {
+    this.openDialog(o, 'Modifier un utilisateur').subscribe((result: User) => {
       if (result) {
         this.uow.users.put(result.id, result).subscribe(
           r => {

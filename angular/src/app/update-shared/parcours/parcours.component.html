@@ -6,32 +6,32 @@
         <div class="row">
             <div class="col-md-6 mt-3">
                 <mat-form-field appearance="fill" class="col-md-12">
-                    <mat-label>titre</mat-label>
+                    <mat-label>Titre</mat-label>
                     <input matInput formControlName="titre" required>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" class="col-md-6">
-                    <mat-label>image</mat-label>
+                    <mat-label>Image</mat-label>
                     <input matInput formControlName="image" required>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" class="col-md-6">
-                    <mat-label>temps</mat-label>
+                    <mat-label>Durée (en minutes)</mat-label>
                     <input matInput formControlName="temps" type="number" required>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" class="col-md-6">
-                    <mat-label>latitude</mat-label>
+                    <mat-label>Latitude</mat-label>
                     <input matInput formControlName="lat" type="number" readonly>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" class="col-md-6">
-                    <mat-label>longitude</mat-label>
+                    <mat-label>Longitude</mat-label>
                     <input matInput formControlName="lng" type="number" readonly>
                 </mat-form-field>
 
                 <mat-form-field appearance="fill" class="col-md-12">
-                    <mat-label>descriptif</mat-label>
+                    <mat-label>Descriptif</mat-label>
                     <textarea matInput formControlName="descriptif" required></textarea>
                 </mat-form-field>
             </div>
@@ -44,7 +44,7 @@
         <div class="actions">
             <button mat-button [routerLink]="['/admin/article/list']" type="button">Retour</button>&nbsp;&nbsp;
             <!-- <button mat-button (click)="reset()" type="button">Annuler</button>&nbsp;&nbsp; -->
-            <button mat-raised-button [disabled]="myForm.invalid || isAdded" color="primary" (click)="submit(myForm.value)">Enregistre
+            <button mat-raised-button [disabled]="myForm.invalid || isAdded" color="primary" (click)="submit(myForm.value)">Enregistrer
         <!-- [disabled]="myForm.invalid" -->
       </button>
         </div>

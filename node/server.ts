@@ -31,7 +31,7 @@ class MyApp {
 
     createConnection(opts)
       .then(() => console.log('Create connection with database has done successfully'))
-      // .then(async () => await new FakeData().insertSomeFakeData())
+      .then(async () => await new FakeData().insertSomeFakeData())
       .catch(e => console.log(e))
       ;
 
@@ -61,14 +61,19 @@ const myApp = new MyApp();
 myApp
   .dbConfig()
   .start()
+  // .get('*', (req, res, next) => {
+  //   // basic middleware
+  //   console.log(`express:req from ${req.originalUrl}`);
+  //   console.log(`express:req type ${req.method}`);
+    
+  //   next();
+  // })
   .use(express.static(join(__dirname, '/api/public')))
-  .get('*', (req, res, next) => {
-    // basic middleware
-    console.log(`express:req from ${req.originalUrl}`);
-    console.log(`express:req type ${req.method}`);
-    next();
+  .use((req, res) => res.sendFile(join(__dirname, '/api/public', 'index.html')))
+  .listen(PORT, () => {
+    // console.log(join(__dirname, '/api/public', 'index.html'));
+    console.log(`Listening at http://localhost:${PORT}/`)
   })
-  .listen(PORT, () => console.log(`Listening at http://localhost:${PORT}/`))
   ;
 
 

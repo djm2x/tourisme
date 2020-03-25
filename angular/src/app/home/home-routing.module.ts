@@ -15,14 +15,22 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent,
     children: [
+      // Si /home demandé alors router vers /home/welcome
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      // { path: '**', redirectTo: 'home', pathMatch: 'full'},
+      
+      // Si /home/welcome demandé alors composant WelcomeComponent
       { path: 'welcome', component: WelcomeComponent},
+      // Si /home/list demandé alors composant ListComponent
       { path: 'list', component: ListComponent},
-      { path: 'created', component: CreatedComponent},
+      // Si /home/created/:id demandé alors composant CreatedComponent
+      { path: 'created/:id', component: CreatedComponent},
+      // Si /home/account demandé alors composant AccountComponent
       { path: 'account', component: AccountComponent},
-      { path: 'followed', component: FollowedComponent},
+      // Si /home/followed/:id demandé alors composant FollowedComponent
+      { path: 'followed/:id', component: FollowedComponent},
+      // Si /home/update/:id demandé alors composant UpdateComponent
       { path: 'update/:id', component: UpdateComponent, canActivate: [MyGuard]},
+      // Si /home/detail/:id demandé alors composant DetailComponent
       { path: 'detail/:id', component: DetailComponent, canActivate: [MyGuard]},
 
     ]

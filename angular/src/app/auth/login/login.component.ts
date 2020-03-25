@@ -35,19 +35,15 @@ export class LoginComponent implements OnInit, OnDestroy {
     , private snackbar: SnackbarService, private route: LastRouteService) { }
 
   async ngOnInit() {
-    // test
+
+    // Valeur par default pour test
     this.o.email = 'admin@angular.io';
     this.o.password = '123';
     this.createForm();
 
-    // console.log(window.origin)
-
-    // this.router.events.pipe(filter((event: any) => event instanceof RoutesRecognized), pairwise()).subscribe((e: RoutesRecognized[]) => {
-    //   this.previousUrl = e[0].urlAfterRedirects;
-    //   console.log(this.previousUrl);
-    // });
   }
 
+    // Formulaire à 2 champs
   createForm() {
     this.myForm = this.fb.group({
       email: [this.o.email, [Validators.required, Validators.email]],
@@ -59,12 +55,12 @@ export class LoginComponent implements OnInit, OnDestroy {
   get password() { return this.myForm.get('password'); }
 
   get emailError() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' : '';
+    return this.email.hasError('required') ? 'Vous devez entrer une valeur' :
+      this.email.hasError('email') ? 'Email invalide' : '';
   }
 
   get passwordError() {
-    return this.password.hasError('required') ? 'You must enter a value' : '';
+    return this.password.hasError('required') ? 'Vous devez entrer une valeur' : '';
   }
 
   submit(o: User) {
@@ -74,7 +70,7 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.session.doSignIn(r.user, r.token);
 
 
-      // this.router.navigate([this.route.previousUrl]);
+      // Si réussite alors aller vers /home
       this.router.navigate(['/home']);
     });
   }

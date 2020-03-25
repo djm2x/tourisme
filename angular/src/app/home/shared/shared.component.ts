@@ -60,19 +60,20 @@ export class SharedComponent implements OnInit {
         this.resultsLength = r[1];
         console.log(r)
       });
-    } else if (this.pageTitle === PageTile.CREATED) {
-      this.uow.parcours.getCreated(startIndex, pageSize, filter).subscribe((r: any) => {
-        this.list = r[0];
-        this.resultsLength = r[1];
-        console.log(r)
-      });
-    } else {
-      this.uow.parcours.getFollowed(startIndex, pageSize, filter).subscribe((r: any) => {
-        this.list = r[0];
-        this.resultsLength = r[1];
-        console.log(r)
-      });
-    }
+    } 
+    // else if (this.pageTitle === PageTile.CREATED) {
+    //   this.uow.parcours.getCreated(startIndex, pageSize, filter).subscribe((r: any) => {
+    //     this.list = r[0];
+    //     this.resultsLength = r[1];
+    //     console.log(r)
+    //   });
+    // } else {
+    //   this.uow.parcours.getFollowed(startIndex, pageSize, filter).subscribe((r: any) => {
+    //     this.list = r[0];
+    //     this.resultsLength = r[1];
+    //     console.log(r)
+    //   });
+    // }
 
 
   }

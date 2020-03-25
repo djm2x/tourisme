@@ -1,20 +1,28 @@
+<!-- Barre de menu utilisateur -->
+
 <mat-toolbar color="primary" class="topbar mat-elevation-z6">
 
     <mat-toolbar-row>
-        <span [routerLink]="['/home/welcome']" routerLinkActive="router-link-active" style="cursor: pointer;">Super travel</span>
-        &nbsp;&nbsp;
-        <span [routerLink]="['/home/list']" routerLinkActive="router-link-active"  style="cursor: pointer; font-size: .8em; margin-left: 20px;">Parcours</span>
+        <span [routerLink]="['/home/welcome']" routerLinkActive="router-link-active" style="cursor: pointer;">Super travel</span> &nbsp;&nbsp;
+        <span [routerLink]="['/home/list']" routerLinkActive="router-link-active" style="cursor: pointer; font-size: .8em; margin-left: 20px;">Parcours</span>
         <span class="example-spacer"></span>
 
+        <!-- Si loggé (isLogin dans TS) alors aller vers <ng-template #thenTemplate> sinon 
+            vers <ng-template #elseTemplate> -->
         <ng-container *ngIf="isLogin; then thenTemplate; else elseTemplate"></ng-container>
         <ng-template #thenTemplate>
             <button mat-raised-button [matMenuTriggerFor]="menu">{{session.user.firstname}}</button>
             <mat-menu #menu="matMenu">
+                <!-- Ajouter un Parcours -->
                 <button mat-menu-item [routerLink]="['/home/update', 0]" routerLinkActive="router-link-active">Ajouter un Parcours</button>
-                <button mat-menu-item [routerLink]="['/home/created']" routerLinkActive="router-link-active">Mes Parcours crées</button>
-                <button mat-menu-item [routerLink]="['/home/followed']" routerLinkActive="router-link-active">Mes Parcours suivis</button>
+                <!-- voir ses parcours -->
+                <button mat-menu-item [routerLink]="['/home/created', session.user.id]" routerLinkActive="router-link-active">Mes Parcours crées</button>
+                <!-- voir ses parcours suivis -->
+                <button mat-menu-item [routerLink]="['/home/followed', session.user.id]" routerLinkActive="router-link-active">Mes Parcours suivis</button>
+                <!-- voir son compte -->
                 <button mat-menu-item [routerLink]="['/home/account']" routerLinkActive="router-link-active">Mon compte</button>
-                <button mat-menu-item (click)="disconnect()">Déconnecter</button>
+                <!-- se déconnecter -->
+                <button mat-menu-item (click)="disconnect()">Se déconnecter</button>
             </mat-menu>
         </ng-template>
         <ng-template #elseTemplate>
@@ -23,18 +31,19 @@
 
         &nbsp;&nbsp;
 
+        <!-- lien vers menu administrateur / fonction show() sous le TS -->
         <button mat-raised-button *ngIf="show()" [routerLink]="['/admin']">Dashboard</button>
     </mat-toolbar-row>
 </mat-toolbar>
 
 
-<main style="margin-top: 50px;background-color: rgb(247, 247, 247);" >
+<main style="margin-top: 50px;background-color: rgb(247, 247, 247);">
 
     <router-outlet></router-outlet>
 
-
 </main>
 
+<!-- Pied de page -->
 <footer>
     <mat-toolbar color="primary">
         <mat-toolbar-row style="height: 15vh;">

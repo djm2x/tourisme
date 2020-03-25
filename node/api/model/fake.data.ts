@@ -111,7 +111,7 @@ export class FakeData {
       const o = new Quizz();
       o.question = faker.name.title();
       o.reponse = `reponse ${faker.random.number({ min: 1, max: 3 })}`;
-      o.choix = `['reponse 1', 'reponse 2','reponse 3',]`;
+      o.choix = `reponse 1;reponse 2;reponse 3'`;
       o.etapId = faker.random.number({ min: 1, max: 10 });
 
       return o;

@@ -3,7 +3,6 @@ import { User } from '../Models/models';
 
 const USER = 'USER';
 const TOKEN = 'TOKEN';
-
 const ADMIN = 'admin';
 
 @Injectable({
@@ -17,6 +16,7 @@ export class SessionService {
   constructor() {
     this.getSession();
   }
+
   // se connecter
   public doSignIn(user: User, token) {
     if (!user || !token) {
@@ -36,7 +36,7 @@ export class SessionService {
     localStorage.setItem(USER, (JSON.stringify(this.user)));
   }
 
-  // se deconnecter
+  // se déconnecter
   public doSignOut(): void {
     this.user = new User();
     localStorage.removeItem(USER);
@@ -60,7 +60,6 @@ export class SessionService {
     } catch (error) {
       this.user = new User();
       this.token = '';
-      console.log('here')
     }
   }
 

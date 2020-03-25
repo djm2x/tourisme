@@ -1,75 +1,68 @@
+<!-- Visualisation d'un parcours -->
+
 <div class="wallpaper">
-  <h1>Parcours</h1>
+    <h1>Parcours</h1>
 </div>
 <div class="container " style="margin-top: -15vh;">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{o.titre}} | {{o.user.firstname}} {{o.user.lastname}}  | {{o.date | date: "dd/MM/yyyy"}}</mat-card-title>
-      <mat-card-subtitle>Descriptif: {{o.descriptif}}</mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{o.titre}} | {{o.user.firstname}} {{o.user.lastname}} | {{o.date | date: "dd/MM/yyyy"}}</mat-card-title>
+            <mat-card-subtitle>Descriptif: {{o.descriptif}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
 
-      <!-- <div class="row">
-        <div class="col-md-12">
-          <h4>Descriptif</h4>
-          <p> {{o.descriptif}} </p>
-        </div>
-      </div> -->
-
-      <div class="row">
-        <div class="col-md-6">
-          <mat-card style="height: 50vh;">
-            <img [src]="o.image" alt="" srcset="" style="width: 100%;">
-          </mat-card>
-        </div>
-        <div class="col-md-6">
-          <mat-card style="height: 50vh;">
-            <app-agm-map [postitionFromParent]="currentPosition" [draggable]="false"></app-agm-map>
-          </mat-card>
-        </div>
-      </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <mat-card style="height: 50vh;">
+                        <img [src]="o.image" alt="" srcset="" style="width: 100%;">
+                    </mat-card>
+                </div>
+                <div class="col-md-6">
+                    <mat-card style="height: 50vh;">
+                        <app-agm-map [postitionFromParent]="currentPosition" [draggable]="false"></app-agm-map>
+                    </mat-card>
+                </div>
+            </div>
 
 
 
-      <div class="row">
-        <div *ngFor="let e of o.etaps; let i=index" class="col-md-6">
-          <mat-card>
-            <mat-form-field appearance="fill" class="col-md-12">
-              <mat-label>Etap {{i + 1}} : Adresse</mat-label>
-              <input matInput [value]="e.adresse" type="number" readonly>
-            </mat-form-field>
+            <div class="row">
+                <div *ngFor="let e of o.etaps; let i=index" class="col-md-6">
+                    <mat-card>
+                        <mat-form-field appearance="fill" class="col-md-12">
+                            <mat-label>Étape {{i + 1}} : Adresse</mat-label>
+                            <input matInput [value]="e.adresse" type="text" readonly>
+                        </mat-form-field>
 
-            <mat-card *ngFor="let q of e.quizzs; let i=index">
-              <mat-form-field appearance="fill" style="width: 100%;">
-                <mat-label>Question</mat-label>
-                <textarea matInput [value]="q.question" readonly></textarea>
-              </mat-form-field>
+                        <mat-card *ngFor="let q of e.quizzs; let i=index">
+                            <mat-form-field appearance="fill" style="width: 100%;">
+                                <mat-label>Question</mat-label>
+                                <textarea matInput [value]="q.question" readonly></textarea>
+                            </mat-form-field>
 
-              <div *ngFor="let s of splite(q.choix); let i=index">
-                <button *ngIf="!hasResponce(q)" style="width: 100%; margin: 3px 0;" mat-raised-button [color]="answer(s, q).color"
-                  (click)="doRespond(s, q)">
+                            <div *ngFor="let s of splite(q.choix); let i=index">
+                                <button *ngIf="!hasResponce(q)" style="width: 100%; margin: 3px 0;" mat-raised-button [color]="answer(s, q).color" (click)="doRespond(s, q)">
                   {{s}} {{answer(s, q).text}}
                 </button>
-              </div>
+                            </div>
 
-              <div *ngIf="hasResponce(q)">
-                  <p>votre reponse : {{q.reponses[0].reponse}}</p>
-                  <p>la bonne reponse : {{q.reponse}}</p>
-              </div>
+                            <div *ngIf="hasResponce(q)">
+                                <p>Votre réponse : {{q.reponses[0].reponse}}</p>
+                                <p>La bonne réponse : {{q.reponse}}</p>
+                            </div>
 
-            </mat-card>
-          </mat-card>
+                        </mat-card>
+                    </mat-card>
 
-        </div>
-      </div>
+                </div>
+            </div>
 
 
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-flat-button color="accent" [routerLink]="['/home/list']">Retout</button>
-      &nbsp;
-      <button mat-flat-button *ngIf="show(o.user)" color="primary" [routerLink]="['/home/update', o.id]">Modifier</button>
-    </mat-card-actions>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-flat-button color="accent" [routerLink]="['/home/list']">Retour</button> &nbsp;
+            <button mat-flat-button *ngIf="show(o.user)" color="primary" [routerLink]="['/home/update', o.id]">Modifier</button>
+        </mat-card-actions>
 
-  </mat-card>
+    </mat-card>
 </div>

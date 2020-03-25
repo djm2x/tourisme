@@ -18,7 +18,6 @@ import { TitleModule } from '../components/title/title.module';
 import { MapModule } from '../map/map.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 
-
 @NgModule({
   declarations: [
     HomeComponent,

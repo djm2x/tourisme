@@ -24,9 +24,33 @@ export class ParcoursController {
     return await this.service.findAndCount(opts as any);
   }
 
+  // @UseBefore(JwtMiddleware)
+  // @Get('/getFollowed/:startIndex/:pageSize/:idUser/:filter')
+  // async getFollowed(@Param('startIndex') startIndex, @Param('pageSize') 
+  // pageSize, @Param('idUser') idUser, @Param('filter') filter: string, @Res() response: Response) {
+
+  //   const userId = response.locals.jwtPayload.userId as number;
+
+  //   let opts = {
+  //     skip: startIndex,
+  //     take: pageSize,
+  //     relations: ['user'],
+  //     join: { alias: 'parcours', innerJoin: { v: 'parcours.userParcoursVisites' } },
+
+
+  //     where: qb => {
+  //       qb.where({  titre: Like(`%${filter === '*' ? '' : filter}%`)})
+  //         .andWhere('v.userId = :userId', { userId: idUser });
+  //     }
+  //   }
+
+  //   return await this.service.findAndCount(opts);
+  // }
+
   @UseBefore(JwtMiddleware)
-  @Get('/getFollowed/:startIndex/:pageSize/:filter')
-  async getFollowed(@Param('startIndex') startIndex, @Param('pageSize') pageSize, @Param('filter') filter: string, @Res() response: Response) {
+  @Get('/getCreated/:startIndex/:pageSize/:idUser/:filter')
+  async getCreated(@Param('startIndex') startIndex, @Param('pageSize') pageSize
+    , @Param('idUser') idUser, @Param('filter') filter: string, @Res() response: Response) {
 
     const userId = response.locals.jwtPayload.userId as number;
 
@@ -34,29 +58,7 @@ export class ParcoursController {
       skip: startIndex,
       take: pageSize,
       relations: ['user'],
-      join: { alias: 'parcours', innerJoin: { v: 'parcours.userParcoursVisites' } },
-
-
-      where: qb => {
-        qb.where({  titre: Like(`%${filter === '*' ? '' : filter}%`)})
-          .andWhere('v.userId = :userId', { userId: userId });
-      }
-    }
-
-    return await this.service.findAndCount(opts);
-  }
-
-  @UseBefore(JwtMiddleware)
-  @Get('/getCreated/:startIndex/:pageSize/:filter')
-  async getCreated(@Param('startIndex') startIndex, @Param('pageSize') pageSize, @Param('filter') filter: string, @Res() response: Response) {
-
-    const userId = response.locals.jwtPayload.userId as number;
-
-    let opts = {
-      skip: startIndex,
-      take: pageSize,
-      relations: ['user'],
-      where: { userId: userId },
+      where: { userId: idUser, titre: Like(`%${filter === '*' ? '' : filter}%`) },
     }
 
     return await this.service.findAndCount(opts);
