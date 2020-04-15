@@ -55,7 +55,7 @@ class MyApp {
 }
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const myApp = new MyApp();
 
 myApp
@@ -73,7 +73,6 @@ myApp
   .listen(PORT, () => {
     // console.log(join(__dirname, '/api/public', 'index.html'));
     console.log(`Listening at http://localhost:${PORT}/`)
-  })
-  ;
+  });
 
 
