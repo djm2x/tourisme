@@ -39,7 +39,7 @@ class MyApp {
         return routing_controllers_1.createExpressServer(opts);
     }
 }
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const myApp = new MyApp();
 myApp
     .dbConfig()
