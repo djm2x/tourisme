@@ -7,8 +7,7 @@ on:
 
 env:
   JOB_NAME: 'tourisme'
-  # TOKEN: '1190ece073ad727d92826064019aec2340'
-  TOKEN: '11336542b2328e12b4d8241ebd8f56b6dc'
+  TOKEN: '114fc0d1d864b6fee4a850875f801152d1'
   
 jobs:
   build:
