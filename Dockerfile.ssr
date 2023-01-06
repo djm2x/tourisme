@@ -18,6 +18,9 @@ WORKDIR /app
 # Copy dependency definitions
 # COPY --from=build-env /app/dist dist
 COPY /node/dist ./
+COPY ./node/package.json ./
+
+RUN npm i --force
 
 # Expose the port the app runs in
 EXPOSE 3000
