@@ -4,7 +4,7 @@ node {
   def APP_NAME = 'tourisme'
   def DOMAINE = 'dev-solus.com'
   def DOMAINE_PREFIX = ''
-  def SUB_DOMAINE = 'com-demo'
+  def SUB_DOMAINE = 'tourisme'
   def APP_PORT = '3000'
   def EXPOSED_PORT = '3050'
 
