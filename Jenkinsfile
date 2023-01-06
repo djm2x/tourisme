@@ -35,6 +35,7 @@ node {
       sh """docker run -d \
       --restart unless-stopped \
       --network proxy \
+      --volume /home/dev/volumes/${APP_NAME}/data:/api/data \
       --label traefik.enable=true \
       --label traefik.http.routers.${APP_NAME}.tls=true \
       --label traefik.http.routers.${APP_NAME}.tls.certresolver=letsencrypt \
